@@ -1,9 +1,32 @@
 import React from 'react';
+import GoogleMapReact from 'google-map-react';
+import { Paper, Typography, useMediaQuery } from '@material-ui/core';
+import { MyLocationOnOutlined } from '@material-ui/icons/LocationCityOutlined';
+import Rating from '@material-ui/lab';
+
+import useStyle from './styles';
+
 
 const Map = () => {
+    const classes = useStyle();
+    const isMobile = useMediaQuery('(min-width:600px');
+
+    const coordinates = { lat: 0, lng: 0 };
+
     return (
-        <div>
-            Map
+        <div className={classes.mapContainer}>
+            <GoogleMapReact
+              bootstrapURLKeys={{ key: 'AIzaSyANb9L9lfNZ1BLZC5a0an7XEZqMnWwZtck' }}
+              defaultCenter={coordinates}
+              center={coordinates}
+              defaultZoom={14}
+              margin={[50, 50, 50, 50]}
+              options={''}
+              onChange={''}
+              onChildClick={''}
+            >
+
+            </GoogleMapReact>
         </div>
     );
 };
